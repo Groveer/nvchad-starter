@@ -1,23 +1,67 @@
--- EXAMPLE 
-local on_attach = require("nvchad.configs.lspconfig").on_attach
-local on_init = require("nvchad.configs.lspconfig").on_init
+local M = {}
+local map = vim.keymap.set
+local conf = require("nvconfig").ui.lsp
 local capabilities = require("nvchad.configs.lspconfig").capabilities
-
+local on_init = require("nvchad.configs.lspconfig").on_init
 local lspconfig = require "lspconfig"
-local servers = { "html", "cssls" }
 
--- lsps with default config
-for _, lsp in ipairs(servers) do
-  lspconfig[lsp].setup {
-    on_attach = on_attach,
-    on_init = on_init,
-    capabilities = capabilities,
-  }
+-- export on_attach & capabilities for custom lspconfigs
+M.on_attach = function(client, bufnr)
+  local function opts(desc)
+    return { buffer = bufnr, desc = desc }
+  end
+
+  map("n", "gD", vim.lsp.buf.declaration, opts "Lsp Go to declaration")
+  map("n", "gd", "<cmd>Glance definitions<CR>", opts "Lsp Go to definition")
+  map("n", "K", vim.lsp.buf.hover, opts "Lsp hover information")
+  map("n", "gi", "<cmd>Glance implementations<CR>", opts "Lsp Go to implementation")
+  map("n", "<C-k>", vim.lsp.buf.signature_help, opts "Lsp Show signature help")
+  map("n", "<leader>wa", vim.lsp.buf.add_workspace_folder, opts "Lsp Add workspace folder")
+  map("n", "<leader>wr", vim.lsp.buf.remove_workspace_folder, opts "Lsp Remove workspace folder")
+
+  map("n", "<leader>wl", function()
+    print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
+  end, opts "Lsp List workspace folders")
+
+  map("n", "gy", "<cmd>Glance type_definitions<CR>", opts "Lsp Go to type definition")
+
+  map("n", "gr", function()
+    require "nvchad.lsp.renamer"()
+  end, opts "Lsp NvRenamer")
+
+  map({ "n", "v" }, "ga", function()
+    require("actions-preview").code_actions()
+  end, opts "Lsp Code action")
+  map("n", "gh", "<cmd>Glance references<CR>", opts "Lsp Show references")
+
+  -- setup signature popup
+  if conf.signature and client.server_capabilities.signatureHelpProvider then
+    require("nvchad.lsp.signature").setup(client, bufnr)
+  end
 end
 
--- typescript
-lspconfig.tsserver.setup {
-  on_attach = on_attach,
-  on_init = on_init,
-  capabilities = capabilities,
+-- if you just want default config for the servers then put them in a table
+-- https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md
+local servers = {
+  "html",
+  "clangd",
+  "pylsp",
+  "bashls",
+  "jsonls",
+  "qmlls",
+  "neocmake",
+  "lua_ls",
+  "rust_analyzer",
 }
+
+M.defaults = function()
+  for _, lsp in ipairs(servers) do
+    lspconfig[lsp].setup {
+      on_attach = M.on_attach,
+      capabilities = capabilities,
+      on_init = on_init,
+    }
+  end
+end
+
+return M
