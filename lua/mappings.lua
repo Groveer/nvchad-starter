@@ -13,8 +13,9 @@ unmap("n", "<leader>v")
 unmap("n", "<leader>fm")
 
 -- general
-map("n", ";", ":", { desc = "CMD enter command mode" })
 map("i", "jk", "<ESC>")
+map("n", ";", ":", { desc = "Nvim CMD enter command mode" })
+map({"n", "v"}, "p", 'p:let @+=@0<CR>:let @"=@0<CR>', { desc = "Nvim Dont copy replaced text", silent = true})
 
 map("i", "jk", "<ESC>", { desc = "Escape insert mode" })
 map("i", "<C-s>", "<Esc><CMD>w!<CR>", { desc = "File Save file" })
