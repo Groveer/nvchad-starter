@@ -1,4 +1,5 @@
 return {
+  -- https://mason-registry.dev/registry/list
   ensure_installed = {
     -- lua stuff
     "lua-language-server",

@@ -117,8 +117,11 @@ return {
 
   {
     "https://gitlab.com/itaranto/plantuml.nvim",
-    ft = { "puml" },
+    ft = { "plantuml" },
     opts = require "configs.plantuml",
+    dependencies = {
+      "javiorfo/nvim-nyctophilia",
+    },
   },
 
   {

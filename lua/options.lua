@@ -4,11 +4,11 @@ require "nvchad.options"
 
 vim.o.cursorlineopt ='both' -- to enable cursorline!
 -- filetype for plantuml
-vim.api.nvim_command "au BufNewFile,BufRead *.puml setfiletype puml"
-vim.api.nvim_command "au BufNewFile,BufRead *.pu setfiletype puml"
-vim.api.nvim_command "au BufNewFile,BufRead *.plantuml setfiletype puml"
-vim.api.nvim_command "au BufNewFile,BufRead *.uml setfiletype puml"
-vim.api.nvim_command "au BufNewFile,BufRead *.iuml setfiletype puml"
+vim.api.nvim_command "au BufNewFile,BufRead *.puml setfiletype plantuml"
+vim.api.nvim_command "au BufNewFile,BufRead *.pu setfiletype plantuml"
+vim.api.nvim_command "au BufNewFile,BufRead *.plantuml setfiletype plantuml"
+vim.api.nvim_command "au BufNewFile,BufRead *.uml setfiletype plantuml"
+vim.api.nvim_command "au BufNewFile,BufRead *.iuml setfiletype plantuml"
 -- filetype for qml
 vim.api.nvim_command "au BufNewFile,BufRead *.qml setfiletype qmljs"
 
