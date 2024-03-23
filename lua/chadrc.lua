@@ -5,11 +5,6 @@
 local M = {}
 
 M.ui = {
-  hl_override = {
-    Normal = {
-      bg = { "black", 3 },
-    },
-  },
   theme = "oxocarbon",
   transparency = true,
   nvdash = {
