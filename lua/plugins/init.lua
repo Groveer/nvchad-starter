@@ -164,19 +164,36 @@ return {
     },
     event = "LspAttach",
   },
+
   {
-    "karb94/neoscroll.nvim",
-    event = { "CursorHold", "CursorHoldI" },
+    "echasnovski/mini.indentscope",
+    event = { "CursorMoved" },
     config = function(_, opts)
-      require("neoscroll").setup(opts)
+      require("mini.indentscope").setup(opts)
     end,
   },
 
   {
-    "edluffy/specs.nvim",
-    event = "CursorMoved",
+    "echasnovski/mini.trailspace",
+    event = { "BufReadPost" },
     config = function(_, opts)
-      require("specs").setup(opts)
+      require("mini.trailspace").setup(opts)
+    end,
+  },
+
+  {
+    "echasnovski/mini.animate",
+    event = { "CursorMoved", "WinNew", "WinClosed" },
+    opts = {
+      open = {
+        enable = false,
+      },
+      close = {
+        enable = false,
+      },
+    },
+    config = function(_, opts)
+      require("mini.animate").setup(opts)
     end,
   },
 

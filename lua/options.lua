@@ -13,5 +13,3 @@ vim.api.nvim_command "au BufNewFile,BufRead *.iuml setfiletype plantuml"
 vim.api.nvim_command "au BufNewFile,BufRead *.qml setfiletype qmljs"
 
 vim.g.vscode_snippets_path = vim.fn.stdpath "config" .. "/snips"
-vim.o.listchars=[[tab:>\ ,trail:·,eol:↲]]
-vim.o.list = true
