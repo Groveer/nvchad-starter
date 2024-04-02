@@ -10,6 +10,8 @@ return {
     html = { "prettier" },
     json = { "prettier" },
 
+    markdown = { "prettier" },
+
     sh = { "shfmt" },
 
     yaml = { "yamlfmt" },
