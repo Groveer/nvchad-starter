@@ -1,11 +1,12 @@
--- This file  needs to have same structure as nvconfig.lua 
+-- This file  needs to have same structure as nvconfig.lua
 -- https://github.com/NvChad/NvChad/blob/v2.5/lua/nvconfig.lua
 
 ---@type ChadrcConfig
 local M = {}
 
 M.ui = {
-  theme = "oxocarbon",
+  theme = "material-darker",
+  theme_toggle = { "material-darker", "material_lighter" },
   transparency = true,
   nvdash = {
     load_on_startup = true,
