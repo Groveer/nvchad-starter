@@ -15,3 +15,10 @@ autocmd("BufReadPost", {
     end
   end,
 })
+
+autocmd("BufRead", {
+  pattern = { "*.*" },
+  callback = function(data)
+    require("local-highlight").attach(data.buf)
+  end,
+})

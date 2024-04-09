@@ -108,10 +108,9 @@ return {
     end,
   },
   {
-    "RRethy/vim-illuminate",
-    event = { "CursorHold", "CursorHoldI" },
+    "tzachar/local-highlight.nvim",
     config = function(_, opts)
-      require("illuminate").configure(opts)
+      require("local-highlight").setup(opts)
     end,
   },
 
