@@ -25,6 +25,7 @@ local options = {
     map("n", "<leader>gR", gs.reset_buffer, opts "Gitsigns Reset Buffer")
     map("n", "<leader>gp", gs.preview_hunk, opts "Gitsigns Preview Hunk")
     map("n", "<leader>gb", gs.blame_line, opts "Gitsigns Blame Line")
+    map("n", "<leader>td", gs.toggle_deleted, opts "Gitsigns Toggle deleted")
     map("v", "<leader>gr", function()
       gs.reset_hunk { vim.fn.line ".", vim.fn.line "v" }
     end, opts "Gitsigns Reset Hunk")
