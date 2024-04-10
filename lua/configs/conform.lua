@@ -1,6 +1,5 @@
 --type conform.options
 return {
-  lsp_fallback = true,
   async = true,
   formatters_by_ft = {
     lua = { "stylua" },

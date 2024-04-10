@@ -24,7 +24,7 @@ map("i", "<A-S-q>", "<Esc><CMD>q!<CR>", { desc = "Nvim Force quit" })
 
 -- plugins
 map({ "n", "i", "v" }, "<A-f>", function()
-  if require("conform").format() then
+  if require("conform").format { lsp_fallback = true } then
     vim.notify("File format applied", vim.log.levels.INFO)
   end
 end, { desc = "File Format with conform" })
