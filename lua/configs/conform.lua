@@ -15,6 +15,14 @@ return {
     sh = { "shfmt" },
 
     yaml = { "yamlfmt" },
+    qmljs = { "qmlformat" },
+  },
+  formatters = {
+    qmlformat = {
+      -- Change where to find the command
+      command = "qmlformat",
+      args = { "$FILENAME" },
+    },
   },
   -- only format changed lines on save
   -- format_on_save = function(bufnr)
