@@ -8,4 +8,9 @@ return {
     { name = "path" },
     { name = "crates" },
   },
+  view = {
+    entries = {
+      follow_cursor = true,
+    },
+  },
 }
