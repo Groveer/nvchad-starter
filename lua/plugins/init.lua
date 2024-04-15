@@ -34,7 +34,13 @@ return {
   },
   {
     "nvim-telescope/telescope.nvim",
-    opts = require "configs.telescope",
+    opts = function()
+      return require "configs.telescope"
+    end,
+    dependencies = {
+      "nvim-telescope/telescope-live-grep-args.nvim",
+      version = "^1.0.0",
+    },
   },
 
   {
