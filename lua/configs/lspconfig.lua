@@ -21,16 +21,18 @@ M.on_attach = function(client, bufnr)
   map("n", "<C-k>", vim.lsp.buf.signature_help, opts "Lsp Show signature help")
   map("n", "<leader>wa", vim.lsp.buf.add_workspace_folder, opts "Lsp Add workspace folder")
   map("n", "<leader>wr", vim.lsp.buf.remove_workspace_folder, opts "Lsp Remove workspace folder")
+  map("n", "<leader>wl", function()
+    print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
+  end, opts "Lsp List workspace folders")
 
   if client.name == "clangd" then
     map("n", "gs", "<cmd>ClangdSwitchSourceHeader<CR>", opts "Lsp Switch C/C++ header source")
   end
 
-  map("n", "<leader>wl", function()
-    print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
-  end, opts "Lsp List workspace folders")
-
   map("n", "gy", "<cmd>Glance type_definitions<CR>", opts "Lsp Go to type definition")
+  map("n", "go", "<cmd>AerialToggle!<CR>", opts "Lsp Show outline")
+  map("n", "[", "<cmd>AerialPrev<CR>", opts "Lsp Previous symbol")
+  map("n", "]", "<cmd>AerialNext<CR>", opts "Lsp Next symbol")
 
   map("n", "gr", function()
     require "nvchad.lsp.renamer"()
