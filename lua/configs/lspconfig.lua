@@ -10,6 +10,9 @@ M.on_attach = function(client, bufnr)
   local function opts(desc)
     return { buffer = bufnr, desc = desc }
   end
+  if client.server_capabilities.inlayHintProvider then
+    vim.lsp.inlay_hint.enable(bufnr, true)
+  end
 
   map("n", "gD", vim.lsp.buf.declaration, opts "Lsp Go to declaration")
   map("n", "gd", "<cmd>Glance definitions<CR>", opts "Lsp Go to definition")
