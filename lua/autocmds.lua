@@ -23,24 +23,19 @@ autocmd("BufRead", {
   end,
 })
 
-local function set_ime(args)
-  if args.event:match "Enter$" then
-    vim.g.neovide_input_ime = true
-  else
-    vim.g.neovide_input_ime = false
-  end
-end
+autocmd("BufRead", {
+  pattern = { "*.png", "*.jpg", "*.jpeg", "*.gif", "*.webp" },
+  callback = function(data)
+    local api = require "image"
+    local pic_path = vim.api.nvim_buf_get_name(data.buf)
+    local image = api.from_file(pic_path {
+      buffer = data.buf, -- optional, binds image to a buffer (paired with window binding)
+      with_virtual_padding = true, -- optional, pads vertically with extmarks, defaults to false
 
-local ime_input = vim.api.nvim_create_augroup("ime_input", { clear = true })
-
-vim.api.nvim_create_autocmd({ "InsertEnter", "InsertLeave" }, {
-  group = ime_input,
-  pattern = "*",
-  callback = set_ime,
-})
-
-vim.api.nvim_create_autocmd({ "CmdlineEnter", "CmdlineLeave" }, {
-  group = ime_input,
-  pattern = "[/\\?]",
-  callback = set_ime,
+      -- optional, binds image to an extmark which it follows. Forced to be true when
+      -- `with_virtual_padding` is true. defaults to false.
+      inline = true,
+    })
+    image.render()
+  end,
 })

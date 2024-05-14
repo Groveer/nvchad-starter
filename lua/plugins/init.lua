@@ -229,4 +229,20 @@ return {
       require("crates").setup(opts)
     end,
   },
+  {
+    "vhyrro/luarocks.nvim",
+    priority = 1001, -- this plugin needs to run before anything else
+    lazy = false,
+    opts = {
+      rocks = { "magick" },
+    },
+  },
+  {
+    "3rd/image.nvim",
+    -- ft = { "png", "jpg", "svg", "gif", "webp" },
+    lazy = false,
+    config = function(_, opts)
+      require("image").setup(opts)
+    end,
+  },
 }
