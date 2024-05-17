@@ -15,7 +15,7 @@ unmap("n", "<leader>fw")
 
 -- general
 map("i", "jk", "<ESC>")
-map("n", ";", ":", { desc = "Nvim CMD enter command mode" })
+map({"n", "v"}, ";", ":", { desc = "Nvim CMD enter command mode" })
 
 map("v", "J", ":m '>+1<CR>gv=gv", { desc = "Nvim Move line down" })
 map("v", "K", ":m '<-2<CR>gv=gv", { desc = "Nvim Move line up" })
