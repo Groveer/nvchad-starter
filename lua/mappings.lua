@@ -45,6 +45,7 @@ end, { desc = "Buffer Close" })
 
 -- telescope
 map("n", "<leader>fs", "<CMD>Telescope grep_string<CR>", { desc = "Telescope Find current word" })
+map("n", "<leader>fd", "<CMD>Telescope diagnostics<CR>", { desc = "Telescope Find workspace diagnostics" })
 map("n", "<leader>fw", function()
   require("telescope").extensions.live_grep_args.live_grep_args()
 end, { desc = "Telescope Live grep" })
