@@ -3,7 +3,7 @@ return {
     type = "image",
     options = {
       prog = "feh",
-      dark_mode = true,
+      dark_mode = false,
     },
   },
   render_on_write = true,
