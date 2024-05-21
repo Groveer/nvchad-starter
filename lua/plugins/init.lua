@@ -1,3 +1,5 @@
+local global = require "global"
+
 return {
   -- overrides
   {
@@ -127,6 +129,7 @@ return {
     dependencies = {
       "javiorfo/nvim-nyctophilia",
     },
+    cond = global.is_linux,
   },
 
   {
@@ -224,9 +227,11 @@ return {
   {
     "Saecki/crates.nvim",
     event = "BufReadPost Cargo.toml",
-    opts = require "configs.crates",
+    opts = function()
+      require "configs.crates"
+    end,
     config = function(_, opts)
-      require("crates").setup(opts)
+      return require("crates").setup(opts)
     end,
   },
   {
@@ -248,6 +253,7 @@ return {
     "3rd/image.nvim",
     ft = { "png", "jpg", "svg", "gif", "webp" },
     event = "BufRead",
+    cond = global.is_linux,
     config = function(_, opts)
       require("image").setup(opts)
     end,
