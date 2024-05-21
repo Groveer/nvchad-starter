@@ -238,9 +238,16 @@ return {
     },
   },
   {
+    "brenoprata10/nvim-highlight-colors",
+    event = "BufRead",
+    config = function(_, opts)
+      require("nvim-highlight-colors").setup(opts)
+    end,
+  },
+  {
     "3rd/image.nvim",
-    -- ft = { "png", "jpg", "svg", "gif", "webp" },
-    lazy = false,
+    ft = { "png", "jpg", "svg", "gif", "webp" },
+    event = "BufRead",
     config = function(_, opts)
       require("image").setup(opts)
     end,
