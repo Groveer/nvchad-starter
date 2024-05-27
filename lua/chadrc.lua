@@ -5,8 +5,8 @@
 local M = {}
 
 M.ui = {
-  theme = "material-darker",
-  theme_toggle = { "material-darker", "material_lighter" },
+  theme = "chadracula",
+  theme_toggle = { "chadracula", "material-lighter" },
   transparency = true,
   nvdash = {
     load_on_startup = true,
