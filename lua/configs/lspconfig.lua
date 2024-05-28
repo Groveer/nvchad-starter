@@ -73,4 +73,13 @@ M.defaults = function()
   end
 end
 
+lspconfig.clangd.setup {
+  filetypes = { "c", "cpp" },
+  single_file_support = false,
+  root_dir = function()
+    vim.loop.cwd()
+  end,
+  offsetEncoding = { "utf-8", "utf-16" },
+}
+
 return M
