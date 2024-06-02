@@ -232,9 +232,7 @@ return {
   {
     "Saecki/crates.nvim",
     event = "BufReadPost Cargo.toml",
-    opts = function()
-      require "configs.crates"
-    end,
+    opts = require "configs.crates",
     config = function(_, opts)
       return require("crates").setup(opts)
     end,
