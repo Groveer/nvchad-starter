@@ -74,6 +74,19 @@ M.defaults = function()
 end
 
 lspconfig.clangd.setup {
+  cmd = {
+    "clangd",
+		"-j=24",
+		"--enable-config",
+		"--background-index",
+		"--pch-storage=memory",
+		"--clang-tidy",
+		"--all-scopes-completion",
+		"--completion-style=detailed",
+		"--header-insertion=never",
+		"--limit-references=3000",
+		"--limit-results=350",
+  },
   filetypes = { "c", "cpp" },
   single_file_support = false,
   root_dir = function()
