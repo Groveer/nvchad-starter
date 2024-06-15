@@ -4,7 +4,7 @@ return {
   -- disable
   {
     "lukas-reineke/indent-blankline.nvim",
-    enabled = false,
+    config = require "configs.indent",
   },
   -- overrides
   {
@@ -187,14 +187,6 @@ return {
   },
 
   {
-    "echasnovski/mini.indentscope",
-    event = { "CursorMoved" },
-    config = function(_, opts)
-      require("mini.indentscope").setup(opts)
-    end,
-  },
-
-  {
     "echasnovski/mini.trailspace",
     event = { "BufReadPost" },
     config = function(_, opts)
@@ -203,18 +195,10 @@ return {
   },
 
   {
-    "echasnovski/mini.animate",
-    event = { "CursorMoved", "WinNew", "WinClosed" },
-    opts = {
-      open = {
-        enable = false,
-      },
-      close = {
-        enable = false,
-      },
-    },
+    "karb94/neoscroll.nvim",
+    event = { "CursorMoved" },
     config = function(_, opts)
-      require("mini.animate").setup(opts)
+      require("neoscroll").setup(opts)
     end,
   },
 
