@@ -52,7 +52,8 @@ return {
 
   {
     "numToStr/Comment.nvim",
-    init = function()
+    event = "BufRead",
+    config = function()
       require("Comment.ft").set("qmljs", "//%s")
     end,
   },
@@ -88,7 +89,7 @@ return {
 
   {
     "folke/todo-comments.nvim",
-    event = { "CursorHold", "CursorHoldI" },
+    event = "BufRead",
     config = function(_, opts)
       require("todo-comments").setup(opts)
     end,
@@ -97,14 +98,14 @@ return {
   {
     "lambdalisue/suda.vim",
     cmd = { "SudaRead", "SudaWrite" },
-    init = function()
+    config = function()
       vim.g["suda#prompt"] = "Enter administrator password: "
     end,
   },
 
   {
     "ibhagwan/smartyank.nvim",
-    event = "BufReadPost",
+    event = "BufRead",
     config = function(_, opts)
       require("smartyank").setup(opts)
     end,
@@ -188,7 +189,7 @@ return {
 
   {
     "echasnovski/mini.trailspace",
-    event = { "BufReadPost" },
+    event = { "BufRead" },
     config = function(_, opts)
       require("mini.trailspace").setup(opts)
     end,
@@ -215,7 +216,7 @@ return {
 
   {
     "Saecki/crates.nvim",
-    event = "BufReadPost Cargo.toml",
+    event = "BufRead Cargo.toml",
     opts = require "configs.crates",
     config = function(_, opts)
       return require("crates").setup(opts)
