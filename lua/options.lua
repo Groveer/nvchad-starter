@@ -15,7 +15,7 @@ vim.api.nvim_command "au BufNewFile,BufRead *.qml setfiletype qmljs"
 vim.g.vscode_snippets_path = vim.fn.stdpath "config" .. "/snips"
 
 if vim.g.neovide then
-  vim.o.guifont = "Maple Mono SC NF:h14"
+  vim.o.guifont = "Maple Mono NF CN:h14"
   vim.g.neovide_transparency = 1.0
   vim.g.neovide_input_ime = false
   vim.g.neovide_scroll_animation_length = 0.2
