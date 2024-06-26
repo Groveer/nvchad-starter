@@ -170,16 +170,6 @@ return {
   },
 
   {
-    "dnlhc/glance.nvim",
-    opts = {
-      border = {
-        enable = true,
-      },
-    },
-    event = "LspAttach",
-  },
-
-  {
     "stevearc/aerial.nvim",
     event = "LspAttach",
     config = function(_, opts)
