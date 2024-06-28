@@ -212,4 +212,12 @@ return {
       return require("crates").setup(opts)
     end,
   },
+
+  {
+    "nvim-pack/nvim-spectre",
+    dependencies = {
+      "nvim-lua/plenary.nvim",
+    },
+    event = { "CursorMoved", "CursorHold" },
+  },
 }
