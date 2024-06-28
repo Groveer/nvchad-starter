@@ -38,7 +38,11 @@ M.on_attach = function(client, bufnr)
   end, opts "Lsp NvRenamer")
 
   map({ "n", "v" }, "ga", function()
-    require("actions-preview").code_actions()
+    if client.name == "rust_analyzer" then
+      vim.cmd.RustLsp('codeAction')
+    else
+      require("actions-preview").code_actions()
+    end
   end, opts "Lsp Code action")
   map("n", "gh", tc_builtin.lsp_references, opts "Lsp Show references")
 
@@ -60,6 +64,7 @@ local servers = {
   "neocmake",
   "lua_ls",
   "rust_analyzer",
+  "taplo"
 }
 
 M.defaults = function()
