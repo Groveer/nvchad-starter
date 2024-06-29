@@ -39,7 +39,7 @@ M.on_attach = function(client, bufnr)
 
   map({ "n", "v" }, "ga", function()
     if client.name == "rust_analyzer" then
-      vim.cmd.RustLsp('codeAction')
+      vim.cmd.RustLsp "codeAction"
     else
       require("actions-preview").code_actions()
     end
@@ -64,7 +64,8 @@ local servers = {
   "neocmake",
   "lua_ls",
   "rust_analyzer",
-  "taplo"
+  "taplo",
+  "tsserver",
 }
 
 M.defaults = function()
