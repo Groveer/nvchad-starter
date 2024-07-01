@@ -11,20 +11,23 @@ M.ui = {
   nvdash = {
     load_on_startup = true,
   },
-  lsp = {
-    signature = true,
-    semantic_tokens = false,
-  },
-  term = {
-    -- hl = "Normal:term,WinSeparator:WinSeparator",
-    float = {
-      relative = "editor",
-      row = 0.3,
-      col = 0.25,
-      width = 1,
-      height = 1,
-      border = "single",
-    },
+}
+
+M.lsp = {
+  signature = false,
+  hover = false,
+  semantic_tokens = false,
+}
+
+M.term = {
+  -- hl = "Normal:term,WinSeparator:WinSeparator",
+  float = {
+    relative = "editor",
+    row = 0,
+    col = 0,
+    width = 1,
+    height = 1,
+    border = "single",
   },
 }
 

@@ -4,7 +4,7 @@ local lspconfig = require "lspconfig"
 -- export on_attach & capabilities for custom lspconfigs
 M.on_attach = function(client, bufnr)
   local map = vim.keymap.set
-  local conf = require("nvconfig").ui.lsp
+  local conf = require("nvconfig").lsp
   local tc_builtin = require "telescope.builtin"
   local function opts(desc)
     return { buffer = bufnr, desc = desc }
