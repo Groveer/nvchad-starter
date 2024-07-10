@@ -18,6 +18,7 @@ unmap("n", "<leader>ff")
 unmap("n", "<leader>fh")
 unmap("n", "<leader>fo")
 unmap("n", "<leader>fz")
+unmap("n", "<leader>ds")
 
 -- general
 map("i", "jk", "<ESC>")
@@ -31,6 +32,7 @@ map("i", "<C-s>", "<Esc><CMD>w!<CR>", { desc = "File Save file" })
 map("n", "<A-S-q>", "<CMD>q!<CR>", { desc = "Nvim Force quit" })
 map("i", "<A-S-q>", "<Esc><CMD>q!<CR>", { desc = "Nvim Force quit" })
 
+map("n", "<leader>q", vim.diagnostic.setloclist, { desc = "lsp diagnostic loclist" })
 -- plugins
 -- fonform
 map({ "n", "i", "v" }, "<A-f>", function()
