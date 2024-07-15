@@ -66,7 +66,7 @@ local servers = {
     },
     filetypes = { "c", "cpp" },
     single_file_support = false,
-    offsetEncoding = { "utf-8", "utf-16" },
+    capabilities = { offsetEncoding = { "utf-8", "utf-16" } },
   },
   pylsp = {},
   bashls = {},
