@@ -71,7 +71,6 @@ local servers = {
   pylsp = {},
   bashls = {},
   jsonls = {},
-  qmlls = {},
   neocmake = {},
   lua_ls = {},
   rust_analyzer = {},
