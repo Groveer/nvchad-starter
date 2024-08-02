@@ -11,7 +11,7 @@ local on_attach = function(client, bufnr)
   local function opts(desc)
     return { buffer = bufnr, desc = desc }
   end
-  if client.server_capabilities.inlayHintProvider then
+  if client.server_capabilities.inlayHintProvider and vim.lsp.inlay_hint then
     vim.lsp.inlay_hint.enable(true)
   end
 
