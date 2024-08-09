@@ -122,16 +122,40 @@ return {
       require("smartyank").setup(opts)
     end,
   },
+  -- {
+  --   "jcdickinson/codeium.nvim",
+  --   event = "InsertEnter",
+  --   dependencies = {
+  --     "nvim-lua/plenary.nvim",
+  --     "hrsh7th/nvim-cmp",
+  --   },
+  --   config = function(_, opts)
+  --     require("codeium").setup(opts)
+  --   end,
+  -- },
   {
-    "jcdickinson/codeium.nvim",
-    event = "InsertEnter",
-    dependencies = {
-      "nvim-lua/plenary.nvim",
-      "hrsh7th/nvim-cmp",
-    },
+    "CopilotC-Nvim/CopilotChat.nvim",
+    branch = "canary",
+    event = "VeryLazy",
     config = function(_, opts)
-      require("codeium").setup(opts)
+      require("CopilotChat").setup(opts)
     end,
+    dependencies = {
+      "zbirenbaum/copilot.lua",
+      cmd = "Copilot",
+      event = "InsertEnter",
+      config = function(_, opts)
+        require("copilot").setup(opts)
+      end,
+      dependencies = {
+        {
+          "zbirenbaum/copilot-cmp",
+          config = function(_, opts)
+            require("copilot_cmp").setup(opts)
+          end,
+        },
+      },
+    },
   },
   {
     "tzachar/local-highlight.nvim",
