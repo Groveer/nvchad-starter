@@ -11,8 +11,8 @@ M.ui = {
 }
 
 M.base46 = {
-  theme = "chadracula",
-  theme_toggle = { "chadracula", "material-lighter" },
+  theme = "chadracula-evondev",
+  theme_toggle = { "chadracula-evondev", "material-lighter" },
   transparency = true,
 }
 
