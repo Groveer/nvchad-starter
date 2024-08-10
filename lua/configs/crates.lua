@@ -6,9 +6,7 @@ return {
   },
   lsp = {
     enabled = true,
-    on_attach = function ()
-      return require("configs.lspconfig").on_attach
-    end,
+    on_attach = require("configs.lspconfig").on_attach,
     actions = true,
     completion = true,
     hover = true,

@@ -1,10 +1,7 @@
--- load defaults i.e lua_lsp
-require("nvchad.configs.lspconfig").defaults()
-
-local lspconfig = require "lspconfig"
+local M = {}
 
 -- export on_attach & capabilities for custom lspconfigs
-local on_attach = function(client, bufnr)
+M.on_attach = function(client, bufnr)
   local map = vim.keymap.set
   local conf = require("nvconfig").lsp
   local tc_builtin = require "telescope.builtin"
@@ -36,7 +33,7 @@ local on_attach = function(client, bufnr)
   map("n", "]", "<cmd>AerialNext<CR>", opts "Lsp Next symbol")
 
   map("n", "gr", function()
-    require "nvchad.lsp.renamer"()
+    require "nvchad.lsp.renamer" ()
   end, opts "Lsp NvRenamer")
 
   map({ "n", "v" }, "ga", function()
@@ -79,12 +76,16 @@ local servers = {
   taplo = {},
   tsserver = {},
 }
+M.defaults = function()
+  local lspconfig = require "lspconfig"
+  local nvlsp = require "nvchad.configs.lspconfig"
+  for name, opts in pairs(servers) do
+    opts.on_init = nvlsp.on_init
+    opts.on_attach = M.on_attach
+    opts.capabilities = nvlsp.capabilities
 
-local nvlsp = require "nvchad.configs.lspconfig"
-for name, opts in pairs(servers) do
-  opts.on_init = nvlsp.on_init
-  opts.on_attach = on_attach
-  opts.capabilities = nvlsp.capabilities
-
-  lspconfig[name].setup(opts)
+    lspconfig[name].setup(opts)
+  end
 end
+
+return M
