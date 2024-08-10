@@ -94,10 +94,8 @@ map("n", "<leader>sp", '<cmd>lua require("spectre").open_file_search({select_wor
 })
 
 -- copilot
-local chat = require "CopilotChat"
-
 map("n", "cc", function()
-  chat.toggle()
+  require("CopilotChat").toggle()
 end, { desc = "Copilot Chat" })
 map("n", "cq", function()
   local input = vim.fn.input "Quick Chat: "
