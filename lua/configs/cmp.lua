@@ -1,7 +1,7 @@
 return {
   sources = {
     { name = "copilot" },
-    -- { name = "codeium" },
+    { name = "codeium" },
     { name = "nvim_lsp" },
     { name = "luasnip" },
     { name = "buffer" },

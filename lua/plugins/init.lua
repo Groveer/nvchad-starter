@@ -123,17 +123,17 @@ return {
       require("smartyank").setup(opts)
     end,
   },
-  -- {
-  --   "jcdickinson/codeium.nvim",
-  --   event = "InsertEnter",
-  --   dependencies = {
-  --     "nvim-lua/plenary.nvim",
-  --     "hrsh7th/nvim-cmp",
-  --   },
-  --   config = function(_, opts)
-  --     require("codeium").setup(opts)
-  --   end,
-  -- },
+  {
+    "jcdickinson/codeium.nvim",
+    event = "InsertEnter",
+    dependencies = {
+      "nvim-lua/plenary.nvim",
+      "hrsh7th/nvim-cmp",
+    },
+    config = function(_, opts)
+      require("codeium").setup(opts)
+    end,
+  },
   {
     "CopilotC-Nvim/CopilotChat.nvim",
     branch = "canary",
