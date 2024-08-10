@@ -234,13 +234,18 @@ return {
     "aznhe21/actions-preview.nvim",
     event = "LspAttach",
   },
-
   {
-    "mrcjkb/rustaceanvim",
-    ft = "rust",
-    version = "^4",
+    'mrcjkb/rustaceanvim',
+    version = '^5',
+    init = function()
+      vim.g.rustaceanvim = {
+        server = {
+          on_attach = require("configs.lspconfig").on_attach,
+        }
+      }
+    end,
+    ft = "rust"
   },
-
   {
     "Saecki/crates.nvim",
     event = "BufRead Cargo.toml",

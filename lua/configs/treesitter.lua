@@ -22,6 +22,7 @@ return {
     "typescript",
     "vim",
     "yaml",
+    "diff",
   },
 
   highlight = {
