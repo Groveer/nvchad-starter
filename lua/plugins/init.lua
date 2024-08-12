@@ -95,13 +95,6 @@ return {
   },
 
   {
-    "nvim-tree/nvim-tree.lua",
-    opts = {
-      git = { enable = true },
-    },
-  },
-
-  {
     "folke/todo-comments.nvim",
     event = "BufRead",
     config = function(_, opts)
