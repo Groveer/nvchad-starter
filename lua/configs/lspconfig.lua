@@ -9,10 +9,6 @@ M.on_attach = function(client, bufnr)
   local function opts(desc)
     return { buffer = bufnr, desc = desc }
   end
-  if client.server_capabilities and client.server_capabilities.inlayHintProvider
-      and lsp.inlay_hint then
-    lsp.inlay_hint.enable(true)
-  end
   map("n", "gD", lsp.buf.declaration, opts "Lsp Go to declaration")
   map("n", "gd", tc_builtin.lsp_definitions, opts "Lsp Go to definition")
   map("n", "K", function()
