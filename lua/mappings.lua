@@ -98,8 +98,8 @@ map("n", "cc", function()
   require("CopilotChat").toggle()
 end, { desc = "Copilot Chat" })
 map("n", "cq", function()
-  local input = vim.fn.input "Quick Chat: "
+  local input = vim.fn.input "Quick Ask: "
   if input ~= "" then
     require("CopilotChat").ask(input, { selection = require("CopilotChat.select").buffer })
   end
-end, { desc = "Copilot Quit" })
+end, { desc = "Copilot Ask" })

@@ -135,28 +135,28 @@ return {
     end,
   },
   {
+    "zbirenbaum/copilot.lua",
+    cmd = "Copilot",
+    event = "InsertEnter",
+    config = function(_, opts)
+      require("copilot").setup(opts)
+    end,
+    dependencies = {
+      {
+        "zbirenbaum/copilot-cmp",
+        config = function(_, opts)
+          require("copilot_cmp").setup(opts)
+        end,
+      },
+    },
+  },
+  {
     "CopilotC-Nvim/CopilotChat.nvim",
     branch = "canary",
-    event = "VeryLazy",
+    cmd = { "CopilotChat", "CopilotChatToggle" },
     config = function(_, opts)
       require("CopilotChat").setup(opts)
     end,
-    dependencies = {
-      "zbirenbaum/copilot.lua",
-      cmd = "Copilot",
-      event = "InsertEnter",
-      config = function(_, opts)
-        require("copilot").setup(opts)
-      end,
-      dependencies = {
-        {
-          "zbirenbaum/copilot-cmp",
-          config = function(_, opts)
-            require("copilot_cmp").setup(opts)
-          end,
-        },
-      },
-    },
   },
   {
     "tzachar/local-highlight.nvim",
@@ -235,16 +235,16 @@ return {
     event = "LspAttach",
   },
   {
-    'mrcjkb/rustaceanvim',
-    version = '^5',
+    "mrcjkb/rustaceanvim",
+    version = "^5",
     init = function()
       vim.g.rustaceanvim = {
         server = {
           on_attach = require("configs.lspconfig").on_attach,
-        }
+        },
       }
     end,
-    ft = "rust"
+    ft = "rust",
   },
   {
     "Saecki/crates.nvim",
