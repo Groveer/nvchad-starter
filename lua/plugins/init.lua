@@ -12,6 +12,7 @@ return {
     config = function()
       require("nvchad.configs.lspconfig").defaults()
       require("configs.lspconfig").defaults()
+      vim.diagnostic.config { virtual_text = false }
     end,
   },
   {
@@ -274,5 +275,13 @@ return {
         unknown = "󰋖", -- hint kind is nil
       },
     }, -- required, even if empty
+  },
+
+  {
+    "rachartier/tiny-inline-diagnostic.nvim",
+    event = { "CursorMoved", "CursorHold" },
+    config = function()
+      require("tiny-inline-diagnostic").setup()
+    end,
   },
 }
