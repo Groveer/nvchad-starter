@@ -4,7 +4,15 @@ vim.g.mapleader = " "
 -- bootstrap lazy and all plugins
 local lazypath = vim.fn.stdpath "data" .. "/lazy/lazy.nvim"
 
-if not vim.uv.fs_stat(lazypath) then
+local has_lazy = false
+
+if vim.fn.has "nvim-0.10" == 1 then
+  has_lazy = vim.uv.fs_stat(lazypath)
+else
+  has_lazy = vim.loop.fs_stat(lazypath)
+end
+
+if not has_lazy then
   vim.notify("Initializing, please wait...", vim.log.levels.INFO, { title = "init" })
   local repo = "https://github.com/folke/lazy.nvim.git"
   vim.fn.system { "git", "clone", "--filter=blob:none", repo, "--branch=stable", lazypath }

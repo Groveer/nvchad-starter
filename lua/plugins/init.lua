@@ -12,7 +12,9 @@ return {
     config = function()
       require("nvchad.configs.lspconfig").defaults()
       require("configs.lspconfig").defaults()
-      vim.diagnostic.config { virtual_text = false }
+      if vim.fn.has "nvim-0.10" == 1 then
+        vim.diagnostic.config { virtual_text = false }
+      end
     end,
   },
   {
@@ -268,6 +270,7 @@ return {
         unknown = "󰋖", -- hint kind is nil
       },
     }, -- required, even if empty
+    enabled = vim.fn.has "nvim-0.10" == 1,
   },
 
   {
@@ -276,5 +279,6 @@ return {
     config = function()
       require("tiny-inline-diagnostic").setup()
     end,
+    enabled = vim.fn.has "nvim-0.10" == 1,
   },
 }
