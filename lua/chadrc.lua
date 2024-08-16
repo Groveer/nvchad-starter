@@ -47,7 +47,7 @@ M.term = {
     col = 0,
     width = 1,
     height = 1,
-    border = "single",
+    border = "rounded",
   },
 }
 
