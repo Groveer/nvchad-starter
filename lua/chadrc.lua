@@ -6,7 +6,7 @@ local M = {}
 
 M.ui = {
   hl_override = {
-    NvDashButtons = { fg = "blue" },
+    NvDashButtons = { fg = "yellow" },
   },
   nvdash = {
     load_on_startup = true,
