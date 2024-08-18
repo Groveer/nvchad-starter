@@ -1,11 +1,27 @@
 return {
   "nvim-tree/nvim-tree.lua",
+  keys = {
+    {
+      "<C-n>",
+      "<CMD>NvimTreeToggle<CR>",
+      "n",
+      desc = "NvimTree Toggle",
+    },
+    {
+      "<leader>e",
+      "<CMD>NvimTreeFocus<CR>",
+      "n",
+      desc = "NvimTree Focus",
+    },
+  },
   opts = {
     git = {
       enable = true,
       ignore = false,
     },
-
+    filters = {
+      dotfiles = true,
+    },
     renderer = {
       icons = {
         show = {

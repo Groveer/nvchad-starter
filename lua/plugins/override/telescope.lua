@@ -3,13 +3,17 @@ return {
   keys = {
     {
       "<leader>fs",
-      "<CMD>Telescope grep_string<CR>",
+      function()
+        require("telescope.builtin").grep_string()
+      end,
       "n",
       desc = "Telescope Find current word",
     },
     {
       "<leader>fr",
-      "<CMD>Telescope resume<CR>",
+      function()
+        require("telescope.builtin").resume()
+      end,
       "n",
       desc = "Telescope Resume",
     },
@@ -20,6 +24,50 @@ return {
       end,
       "n",
       desc = "Telescope Live grep",
+    },
+    {
+      "<leader>ff",
+      function()
+        require("telescope.builtin").find_files()
+      end,
+      "n",
+      desc = "Telescope Find files",
+    },
+    {
+      "<leader>fh",
+      function()
+        require("telescope.builtin").help_tags()
+      end,
+      "n",
+      desc = "Telescope Help page",
+    },
+    {
+      "<leader>ma",
+      "<CMD>Telescope marks<CR>",
+      "n",
+      desc = "Telescope Find marks",
+    },
+    {
+      "<leader>th",
+      "<CMD>Telescope themes<CR>",
+      "n",
+      desc = "Telescope Themes",
+    },
+    {
+      "<leader>gc",
+      function()
+        require("telescope.builtin").git_commits()
+      end,
+      "n",
+      desc = "Telescope Git commits",
+    },
+    {
+      "<leader>gt",
+      function()
+        require("telescope.builtin").git_status()
+      end,
+      "n",
+      desc = "Telescope Git status",
     },
   },
   opts = function()
