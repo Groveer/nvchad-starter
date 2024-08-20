@@ -13,6 +13,7 @@ return {
   -- add
   { import = "plugins.add.actions-preview" },
   { import = "plugins.add.aerial" },
+  { import = "plugins.add.avante" },
   { import = "plugins.add.codeium" },
   { import = "plugins.add.comment" },
   { import = "plugins.add.copilot" },
