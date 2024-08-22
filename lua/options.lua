@@ -7,6 +7,11 @@ local fn = vim.fn
 
 -- add yours here!
 o.cursorlineopt = "both" -- to enable cursorline!
+
+-- avante.nvim recommanded options
+o.laststatus = 3
+o.splitkeep = "screen"
+
 -- filetype for plantuml
 command "au BufNewFile,BufRead *.puml setfiletype plantuml"
 command "au BufNewFile,BufRead *.pu setfiletype plantuml"
