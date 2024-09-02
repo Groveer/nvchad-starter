@@ -17,6 +17,13 @@ return {
   },
 
   config = function(_, opts)
+    local cmp = require "cmp"
+    local config = cmp.get_config()
+    table.insert(config.sources, 1, {
+      name = "crates",
+      max_item_count = 5,
+    })
+    cmp.setup(config)
     return require("crates").setup(opts)
   end,
 }

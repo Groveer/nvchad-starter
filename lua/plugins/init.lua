@@ -1,7 +1,6 @@
 return {
   -- disable
   -- overrides
-  { import = "plugins.override.cmp" },
   { import = "plugins.override.conform" },
   { import = "plugins.override.gitsigns" },
   { import = "plugins.override.indent-blankline" },
