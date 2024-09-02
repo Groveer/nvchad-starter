@@ -26,6 +26,7 @@ return {
     },
   },
   cmd = "AvanteAsk",
+  build = ":AvanteBuild",
   opts = {
     provider = "ollama",
     vendors = {
