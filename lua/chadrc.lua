@@ -28,8 +28,8 @@ M.ui = {
 }
 
 M.base46 = {
-  theme = "chadracula-evondev",
-  theme_toggle = { "chadracula-evondev", "material-lighter" },
+  theme = "github_light",
+  theme_toggle = { "github_light", "github_light" },
   transparency = true,
 }
 

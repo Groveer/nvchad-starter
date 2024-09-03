@@ -26,9 +26,12 @@ return {
     },
   },
   cmd = "AvanteAsk",
-  build = ":AvanteBuild",
+  build = "make",
   opts = {
-    provider = "ollama",
+    provider = "copilot",
+    behaviour = {
+      auto_suggestions = true, -- Experimental stage
+    },
     vendors = {
       ollama = {
         ["local"] = true,

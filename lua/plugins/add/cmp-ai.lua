@@ -31,7 +31,7 @@ return {
   config = function(_, opts)
     local cmp = require "cmp"
     local config = cmp.get_config()
-    table.insert(config.sources, 1, {
+    table.insert(config.sources, 2, {
       name = "cmp_ai",
       max_item_count = 5,
     })
